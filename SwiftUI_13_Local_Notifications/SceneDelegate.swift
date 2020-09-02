@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  SwiftUI_13_Local_Notifications
-//
-//  Created by Everis on 02/09/2020.
-//  Copyright © 2020 Alan. All rights reserved.
-//
 
 import UIKit
 import SwiftUI
