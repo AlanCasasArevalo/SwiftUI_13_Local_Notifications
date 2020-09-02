@@ -4,16 +4,27 @@ import UserNotifications
 
 struct ContentView: View {
     
+    @State private var show = false
+    
     var body: some View {
-        
-        VStack {
-            Button(action: {
-                self.localNotification()
-            }) {
-                Text("Notificacion")
+        NavigationView {
+            VStack {
+                NavigationLink (destination: LocalNotificationView(), isActive: self.$show) {
+                    EmptyView()
+                }
+                Button(action: {
+                    self.localNotification()
+                }) {
+                    Text("Notificacion")
+                }
+            }
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: NSNotification.Name("OpenView"), object: nil, queue: .main) { notification in
+                    // Accion del boton de la notificacion
+                    self.show.toggle()
+                }
             }
         }
-        
     }
 }
 
@@ -46,7 +57,7 @@ extension ContentView {
         let cancel = UNNotificationAction(identifier: "cancel", title: "Cancelar", options: .destructive)
         let category = UNNotificationCategory(identifier: "categoryActions", actions: [openNewView, cancel], intentIdentifiers: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
-
+        
         content.categoryIdentifier = "categoryActions"
         
         return content

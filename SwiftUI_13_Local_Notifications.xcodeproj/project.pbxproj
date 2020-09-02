@@ -14,6 +14,7 @@
 		51AFDC1124FFE8B3006E98D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51AFDC1024FFE8B3006E98D4 /* Preview Assets.xcassets */; };
 		51AFDC1424FFE8B3006E98D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51AFDC1224FFE8B3006E98D4 /* LaunchScreen.storyboard */; };
 		51AFDC1C24FFEFA3006E98D4 /* homer.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51AFDC1B24FFEFA3006E98D4 /* homer.gif */; };
+		51AFDC1E24FFF8F2006E98D4 /* LocalNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AFDC1D24FFF8F2006E98D4 /* LocalNotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		51AFDC1324FFE8B3006E98D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51AFDC1524FFE8B3006E98D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51AFDC1B24FFEFA3006E98D4 /* homer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = homer.gif; sourceTree = "<group>"; };
+		51AFDC1D24FFF8F2006E98D4 /* LocalNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				51AFDC0724FFE8B2006E98D4 /* AppDelegate.swift */,
 				51AFDC0924FFE8B2006E98D4 /* SceneDelegate.swift */,
 				51AFDC0B24FFE8B2006E98D4 /* ContentView.swift */,
+				51AFDC1D24FFF8F2006E98D4 /* LocalNotificationView.swift */,
 				51AFDC0D24FFE8B3006E98D4 /* Assets.xcassets */,
 				51AFDC1224FFE8B3006E98D4 /* LaunchScreen.storyboard */,
 				51AFDC1524FFE8B3006E98D4 /* Info.plist */,
@@ -153,6 +156,7 @@
 				51AFDC0824FFE8B2006E98D4 /* AppDelegate.swift in Sources */,
 				51AFDC0A24FFE8B2006E98D4 /* SceneDelegate.swift in Sources */,
 				51AFDC0C24FFE8B2006E98D4 /* ContentView.swift in Sources */,
+				51AFDC1E24FFF8F2006E98D4 /* LocalNotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
