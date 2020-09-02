@@ -24,11 +24,6 @@ extension ContentView {
             
         }
         
-        // Imagen
-        
-        
-        // Botones
-        
         createRequest()
     }
     
@@ -44,7 +39,15 @@ extension ContentView {
         
         if let attachmentImage = createImage() {
             content.attachments = [attachmentImage]
-        }        
+        }
+        
+        // Botones
+        let openNewView = UNNotificationAction(identifier: "openNewView", title: "Abrir nueva vista", options: .foreground)
+        let cancel = UNNotificationAction(identifier: "cancel", title: "Cancelar", options: .destructive)
+        let category = UNNotificationCategory(identifier: "categoryActions", actions: [openNewView, cancel], intentIdentifiers: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+
+        content.categoryIdentifier = "categoryActions"
         
         return content
     }
@@ -56,6 +59,7 @@ extension ContentView {
     }
     
     func createImage() -> UNNotificationAttachment? {
+        // Imagen
         guard let imagePath = Bundle.main.path(forResource: "homer", ofType: "gif") else { return nil }
         let url = URL(fileURLWithPath: imagePath)
         
@@ -72,7 +76,6 @@ extension ContentView {
         let request = UNNotificationRequest(identifier: "noti", content: createContent(), trigger: createTrigger())
         UNUserNotificationCenter.current().add(request)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
