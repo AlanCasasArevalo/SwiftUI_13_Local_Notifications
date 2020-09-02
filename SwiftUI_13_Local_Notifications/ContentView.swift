@@ -3,9 +3,9 @@ import SwiftUI
 import UserNotifications
 
 struct ContentView: View {
-
+    
     var body: some View {
-
+        
         VStack {
             Button(action: {
                 self.localNotification()
@@ -19,7 +19,7 @@ struct ContentView: View {
 
 extension ContentView {
     func localNotification () {
-                
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay, .announcement, .providesAppNotificationSettings]) { success, error in
             
         }
@@ -28,7 +28,7 @@ extension ContentView {
         
         
         // Botones
-                
+        
         createRequest()
     }
     
@@ -41,6 +41,11 @@ extension ContentView {
         content.body = "Este es el cuerpo de la notificacion es donde vendra todo el centro de la misma"
         content.sound = .defaultCritical
         content.badge = 1
+        
+        if let attachmentImage = createImage() {
+            content.attachments = [attachmentImage]
+        }        
+        
         return content
     }
     
@@ -48,6 +53,19 @@ extension ContentView {
         // Disparador (triger)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
         return trigger
+    }
+    
+    func createImage() -> UNNotificationAttachment? {
+        guard let imagePath = Bundle.main.path(forResource: "homer", ofType: "gif") else { return nil }
+        let url = URL(fileURLWithPath: imagePath)
+        
+        do {
+            let image = try UNNotificationAttachment(identifier: "homer", url: url, options: nil)
+            return image
+        } catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
     }
     
     func createRequest () {
